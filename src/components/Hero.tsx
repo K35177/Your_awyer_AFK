@@ -1,81 +1,127 @@
-import { ArrowRight, ShieldCheck, TrendingUp, Users } from 'lucide-react';
+import { ArrowRight, Phone, Scale, ShieldCheck, Users } from 'lucide-react';
+
+const metrics = [
+  {
+    value: '10+',
+    label: 'лет юридической практики',
+    icon: Scale,
+    tone: 'blue'
+  },
+  {
+    value: '500+',
+    label: 'клиентов получили сопровождение',
+    icon: Users,
+    tone: 'gold'
+  },
+  {
+    value: '24/7',
+    label: 'внимание к делу и обратная связь',
+    icon: ShieldCheck,
+    tone: 'green'
+  }
+];
+
+const advantages = [
+  'Юридические услуги для бизнеса и частных клиентов',
+  'Спокойная коммуникация и понятная стратегия решения',
+  'Сопровождение документов, переговоров и судебных споров'
+];
 
 export function Hero() {
   return (
-    <section className="relative bg-white overflow-hidden">
-      {/* Background decorative elements */}
-      <div className="absolute inset-0 z-0 opacity-5">
-        <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-brand-blue blur-3xl"></div>
-        <div className="absolute top-1/2 -left-24 w-72 h-72 rounded-full bg-brand-green blur-3xl"></div>
-      </div>
+    <section id="about" className="relative overflow-hidden border-b border-slate-200 bg-white">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(30,58,138,0.06),transparent_28%),radial-gradient(circle_at_bottom_right,rgba(212,175,55,0.10),transparent_22%)]"></div>
+      <div className="absolute left-1/2 top-0 hidden h-full w-[860px] -translate-x-1/2 bg-[radial-gradient(circle,rgba(15,23,42,0.04)_0,rgba(15,23,42,0.04)_1px,transparent_1px)] bg-[length:36px_36px] opacity-40 lg:block"></div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-24 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          
-          {/* Text Content */}
-          <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-brand-blue text-sm font-medium mb-6">
-              <ShieldCheck className="w-4 h-4 text-brand-green" />
+      <div className="relative mx-auto max-w-7xl px-4 pb-20 pt-14 sm:px-6 lg:px-8 lg:pb-24 lg:pt-20">
+        <div className="grid items-center gap-14 lg:grid-cols-[minmax(0,1.05fr)_minmax(420px,0.95fr)]">
+          <div className="max-w-3xl">
+            <div className="inline-flex items-center gap-2 rounded-full border border-brand-blue/10 bg-brand-blue/5 px-4 py-2 text-sm font-semibold text-brand-blue shadow-sm shadow-brand-blue/5">
+              <ShieldCheck className="h-4 w-4 text-brand-green" />
               Надежная защита ваших интересов
             </div>
-            
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
-              Профессиональная <br/>
-              <span className="text-brand-blue">юридическая помощь</span> <br/>
-              для бизнеса и граждан
+
+            <h1 className="mt-8 text-5xl font-extrabold leading-[0.94] tracking-[-0.04em] text-slate-950 sm:text-6xl xl:text-[88px]">
+              Профессиональная
+              <span className="mt-2 block text-brand-blue">юридическая</span>
+              <span className="mt-2 block">помощь</span>
+              <span className="mt-2 block">для бизнеса и</span>
+              <span className="mt-2 block">граждан</span>
             </h1>
-            
-            <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-              Команда опытных адвокатов и юристов <strong className="font-serif text-brand-gold text-xl font-bold italic">АФК</strong> обеспечит комплексное сопровождение ваших дел, минимизирует риски и защитит ваши права в любой инстанции.
+
+            <p className="mt-8 max-w-2xl text-xl leading-9 text-slate-600">
+              Центр правовой поддержки <span className="font-semibold text-slate-900">«Ваш юрист»</span> с фирменным акцентом
+              <span className="font-serif text-[1.1em] italic text-brand-gold"> АФК</span>. Помогаем в переговорах, документах и судебных спорах — спокойно, структурированно и по существу.
             </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4">
-              <button className="flex items-center justify-center gap-2 bg-brand-gold hover:bg-yellow-500 text-white px-8 py-3.5 rounded-md font-semibold transition-colors shadow-lg shadow-yellow-500/20">
+
+            <div className="mt-8 grid max-w-2xl gap-3">
+              {advantages.map((item) => (
+                <div key={item} className="flex items-center gap-3 text-base leading-7 text-slate-700">
+                  <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full border border-brand-green/20 bg-brand-green/10 text-brand-green">
+                    <ShieldCheck className="h-5 w-5" />
+                  </span>
+                  <span>{item}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+              <a
+                href="tel:+79990000000"
+                className="inline-flex min-h-14 items-center justify-center gap-2 rounded-xl bg-brand-gold px-8 py-4 text-base font-bold text-slate-950 shadow-[0_16px_30px_-18px_rgba(212,175,55,0.8)] transition-all hover:-translate-y-0.5 hover:bg-[#e1bc4a]"
+              >
                 Получить консультацию
-                <ArrowRight className="w-5 h-5" />
-              </button>
-              <button className="flex items-center justify-center gap-2 bg-white border-2 border-brand-gray text-brand-gray hover:border-brand-blue hover:text-brand-blue px-8 py-3.5 rounded-md font-semibold transition-colors">
-                Наши услуги
-              </button>
+                <ArrowRight className="h-5 w-5" />
+              </a>
+              <a
+                href="#services"
+                className="inline-flex min-h-14 items-center justify-center gap-2 rounded-xl border border-slate-300 bg-white px-8 py-4 text-base font-bold text-slate-700 transition-all hover:-translate-y-0.5 hover:border-brand-blue hover:text-brand-blue"
+              >
+                Посмотреть услуги
+              </a>
             </div>
           </div>
 
-          {/* Visual/Stats Content */}
           <div className="relative">
-            <div className="bg-slate-50 border border-slate-100 rounded-2xl p-8 shadow-xl">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                <div className="flex flex-col gap-2">
-                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-2">
-                    <TrendingUp className="w-6 h-6 text-brand-blue" />
-                  </div>
-                  <h3 className="text-3xl font-bold text-gray-900">15+</h3>
-                  <p className="text-sm text-gray-500 font-medium">Лет успешной практики</p>
-                </div>
-                
-                <div className="flex flex-col gap-2">
-                  <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-2">
-                    <ShieldCheck className="w-6 h-6 text-brand-green" />
-                  </div>
-                  <h3 className="text-3xl font-bold text-gray-900">98%</h3>
-                  <p className="text-sm text-gray-500 font-medium">Выигранных дел</p>
-                </div>
-                
-                <div className="flex flex-col gap-2">
-                  <div className="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center mb-2">
-                    <Users className="w-6 h-6 text-brand-gold" />
-                  </div>
-                  <h3 className="text-3xl font-bold text-gray-900">500+</h3>
-                  <p className="text-sm text-gray-500 font-medium">Довольных клиентов</p>
-                </div>
+            <div className="hero-panel relative overflow-hidden rounded-[32px] border border-slate-200 bg-white p-8 shadow-[0_30px_70px_-35px_rgba(15,23,42,0.35)] sm:p-10">
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(212,175,55,0.12),transparent_30%),linear-gradient(180deg,rgba(248,250,252,0.95),rgba(255,255,255,1))]"></div>
+              <div className="relative z-10">
+                <div className="grid grid-cols-2 gap-5">
+                  {metrics.map(({ value, label, icon: Icon, tone }) => (
+                    <div
+                      key={value}
+                      className={`metric-card metric-${tone} rounded-[24px] border p-6 ${value === '24/7' ? 'col-span-2 sm:col-span-1' : ''}`}
+                    >
+                      <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-white shadow-sm">
+                        <Icon className="h-7 w-7" />
+                      </div>
+                      <div className="text-5xl font-extrabold tracking-[-0.05em] text-slate-950">{value}</div>
+                      <p className="mt-3 max-w-[220px] text-base leading-7 text-slate-500">{label}</p>
+                    </div>
+                  ))}
 
-                <div className="flex flex-col justify-center p-4 bg-brand-blue rounded-xl text-white">
-                  <p className="text-sm font-medium mb-1 opacity-80">Ваш надежный партнер</p>
-                  <div className="font-serif text-2xl font-bold text-brand-gold italic">АФК</div>
+                  <div className="col-span-2 rounded-[28px] bg-brand-blue p-8 text-white shadow-[0_20px_40px_-20px_rgba(30,58,138,0.9)]">
+                    <p className="text-sm font-medium text-white/75">Ваш надежный партнер</p>
+                    <div className="mt-3 flex items-end justify-between gap-4">
+                      <div>
+                        <div className="font-serif text-5xl italic text-brand-gold sm:text-6xl">АФК</div>
+                        <p className="mt-3 max-w-xs text-sm leading-6 text-white/80">
+                          Юридическая помощь с понятной подачей, аккуратной структурой и вниманием к деталям.
+                        </p>
+                      </div>
+                      <a
+                        href="tel:+79990000000"
+                        className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/15 bg-white/10 text-brand-gold transition-colors hover:bg-white/20"
+                        aria-label="Связаться"
+                      >
+                        <Phone className="h-5 w-5" />
+                      </a>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </section>
